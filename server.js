@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 	}
 
 	async.each(Object.keys(TORRENT_DATA), (item, element) => {
-		const url = `${req.protocol}://${req.hostname}${settings.DEBUG ? ':'PORT : null}/${item}`;
+		const url = req.protocol + "://" + req.hostname + (settings.DEBUG ? ":" + PORT : "") + "/" + item;
 		categories.push(url);
 	});
 
